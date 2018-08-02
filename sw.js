@@ -37,13 +37,13 @@ self.addEventListener('install', function(event) {
 
       return cache.addAll([
         '/',
-        '/index',
-        '/index?homescreen=1',
+        '/index.html',
+        '/index.html?homescreen=1',
         '/?homescreen=1',
-        '/accessibility',
-        '/browser-support',
-        '/coding-standards',
-        '/contribute',
+        '/accessibility.html',
+        '/browser-support.html',
+        '/coding-standards.html',
+        '/contribute.html',
         '/css/minified/main.css'
       ]);
     })
@@ -51,7 +51,6 @@ self.addEventListener('install', function(event) {
 });
 
 self.addEventListener('fetch', function(event) {
-  console.log(event.request.url);
 
   event.respondWith(
     caches.match(event.request).then(function(response) {
